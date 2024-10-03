@@ -21,5 +21,29 @@
     <footer>
         <p><a href="../index.html">Back to Homepage</a></p>
     </footer>
+<div id="menu-container"></div>
+<script>
+  fetch('/menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+    });
+</script>
+<div id="gallery"></div>
+<script>
+    fetch('/images/mira_images.json')
+      .then(response => response.json())
+      .then(data => {
+        const gallery = document.getElementById('gallery');
+        data.forEach(image => {
+          const img = document.createElement('img');
+          img.src = image.src;
+          img.alt = image.alt;
+          gallery.appendChild(img);
+        });
+      });
+</script>
+
+
 </body>
 </html>

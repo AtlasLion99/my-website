@@ -18,5 +18,14 @@
     <footer>
         <p><a href="../index.html">Back to Homepage</a></p>
     </footer>
+<div id="menu-container"></div>
+<script>
+  fetch('/menu.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('menu-container').innerHTML = data;
+    });
+</script>
+
 </body>
 </html>
